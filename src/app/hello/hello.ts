@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 
 @Component({
   selector: 'app-hello',
@@ -19,6 +19,11 @@ protected onClick(){
 protected count = signal(0);
 
 protected doubleCount= computed(()=> this.count() * 2);
+
+private readonly countLog= effect(()=>{
+console.log('count changed:', this.count())
+
+});
 
 protected increateCounter(){
  /*  count =count+1; */
