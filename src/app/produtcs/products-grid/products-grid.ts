@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Product } from './../product';
+import { Component, signal } from '@angular/core';
 import { ProductsCard } from '../products-card/products-card';
 
 @Component({
@@ -7,4 +8,7 @@ import { ProductsCard } from '../products-card/products-card';
   templateUrl: './products-grid.html',
   styleUrl: './products-grid.scss',
 })
-export class ProductsGrid {}
+export class ProductsGrid {
+
+  protected readonly products = signal<Product[]>([])
+}
